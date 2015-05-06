@@ -1,0 +1,151 @@
+.expertPortrait {
+	background-color: white;
+}
+
+// mixins
+
+// https://gist.github.com/trent-boyd/4247045
+.filter(@type, @percentage) {
+  filter: ~"@{type}(@{percentage})";
+  -webkit-filter: ~"@{type}(@{percentage})";
+  -moz-filter: ~"@{type}(@{percentage})";
+  -o-filter: ~"@{type}(@{percentage})";
+  -ms-filter: ~"@{type}(@{percentage})";
+}
+
+.saturate(@percentage) {
+  .filter("saturate", @percentage);
+}
+
+.brightness(@percentage) {
+  .filter("brightness", @percentage);
+}
+
+.make-lead-in() {
+  @lead-in-font-size: 40px;
+  @lead-in-margin-bottom: 25px;
+  .lead-in {
+    font-size: @lead-in-font-size * 0.75;
+    margin-bottom: @lead-in-margin-bottom * 0.5;
+
+    @media(min-width: @screen-sm-min) {
+      margin-bottom: @lead-in-margin-bottom;
+      font-size: @lead-in-font-size;
+    }
+  }
+}
+
+.make-heading() {
+  @heading-margin-bottom: 50px;
+  @heading-font-size: 75px;
+  .heading {
+    font-size: @heading-font-size * 0.75;
+    margin-bottom: @heading-margin-bottom * 0.5;
+
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @media(min-width: @screen-sm-min) {
+      margin-bottom: @heading-margin-bottom;
+      font-size: @heading-font-size;
+    }
+  }
+}
+
+.make-heading-button() {
+  a {
+    .btn();
+    .button-size(20, 40, 18, 1.428, 3);
+    font-weight: bold;
+    background-color: darken(@sdx-cyan, 30%);
+    color: @gray-lighter;
+    text-transform: uppercase;
+
+    &:hover {
+      color: @gray-lighter;
+      background-color: darken(@sdx-cyan, 20%);
+    }
+  }
+}
+
+.make-header() {
+  @header-padding-bottom: 125;
+  @header-padding-top: @header-padding-bottom * 1.25;
+  @text-color: @gray-lighter;
+
+  .make-background-cover-image(@intro-img);
+  text-align: center;
+  color: @text-color;
+
+  > div {
+    padding-top: @header-padding-top / 4;
+    padding-bottom: @header-padding-bottom / 3;
+
+    @media(min-width: @screen-sm-min) {
+      padding-top: @header-padding-top;
+      padding-bottom: @header-padding-bottom;
+    }
+
+    .make-lead-in();
+    .make-heading();
+    .make-heading-button();
+  }
+}
+
+.make-background-cover-image(@image-path) {
+  background-attachment: scroll;
+  background-image: url(@image-path);
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.make-section(@background-color) {
+  > div {
+    .container();
+
+    > div {
+      .make-row();
+      background-color: @background-color;
+    }
+  }
+}
+
+.make-columns-by-amount(@xs, @sm, @md, @lg) {
+  .make-xs-column(@grid-columns / @xs);
+  .make-sm-column(@grid-columns / @sm);
+  .make-md-column(@grid-columns / @md);
+  .make-lg-column(@grid-columns / @lg);
+}
+
+// classes
+
+// components
+.default-section {
+  .make-section(none);
+}
+
+.orange-section {
+  .make-section(@sdx-orange);
+}
+
+.navy-section {
+  .make-section(@sdx-navy);
+}
+
+// layout
+
+header {
+  .make-header();
+}
+
+.col-4-3-2-1 {
+  > div {
+    .make-columns-by-amount(1, 2, 3, 4);
+    height: 100px;
+  }
+}
