@@ -1,6 +1,6 @@
 $(function() {
 	$('#expertsTable').dataTable({
-		'ajaxSource': 'experts.json',
+		'ajaxSource': 'js/experts.json',
 		'columns': [
 			{ 'data': 'image', 'title': 'Portrait', 'class': 'expertPortrait' },
 			{ 'data': 'name', 'title': 'Name' },

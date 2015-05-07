@@ -73,7 +73,6 @@
   @header-padding-top: @header-padding-bottom * 1.25;
   @text-color: @gray-lighter;
 
-  .make-background-cover-image(@intro-img);
   text-align: center;
   color: @text-color;
 
@@ -92,10 +91,12 @@
   }
 }
 
-.make-background-cover-image(@image-path) {
-  background-attachment: scroll;
+.make-background-cover-image(@image-path, @position, @attachment) {
+  //@attachment = scroll
+	// background-position = center center
+	background-attachment: @attachment;
   background-image: url(@image-path);
-  background-position: center center;
+  background-position: @position;
   background-repeat: no-repeat;
 
   -webkit-background-size: cover;
@@ -104,13 +105,17 @@
   background-size: cover;
 }
 
-.make-section(@background-color) {
-  > div {
+.make-section(@row-background-color, @section-background-color: @gray-lighter) {
+  // preventing image from being shown
+	width: 100%;
+	background-color: @section-background-color;
+
+	> div {
     .container();
 
     > div {
       .make-row();
-      background-color: @background-color;
+      background-color: @row-background-color;
     }
   }
 }
@@ -126,7 +131,7 @@
 
 // components
 .default-section {
-  .make-section(none);
+  .make-section(none, transparent);
 }
 
 .orange-section {
@@ -139,13 +144,25 @@
 
 // layout
 
+body {
+	@background-position: right center;
+	.make-background-cover-image(@intro-img, @background-position, fixed);
+	height: 100%;
+}
+
 header {
   .make-header();
 }
 
-.col-4-3-2-1 {
+.col-1-2-3-4 {
   > div {
     .make-columns-by-amount(1, 2, 3, 4);
     height: 100px;
+  }
+}
+
+.col-1-2-3-3 {
+	> div {
+    .make-columns-by-amount(1, 2, 3, 3);
   }
 }
