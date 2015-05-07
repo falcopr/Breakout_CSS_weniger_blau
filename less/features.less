@@ -1,3 +1,24 @@
-#features {
+// mixins
+.make-features() {
   .make-section();
+  // container
+  > div {
+    // first row
+    > div {
+      // header rows
+      > div {
+        .make-xs-column(12);
+        .text-center();
+      }
+    }
+    // second row
+    > div + div {
+      .col-1-2-3-3;
+    }
+  }
+}
+
+// classes
+#features {
+  .make-features();
 }
