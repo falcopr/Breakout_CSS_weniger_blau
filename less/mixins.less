@@ -1,0 +1,37 @@
+// https://gist.github.com/trent-boyd/4247045
+.filter(@type, @percentage) {
+  filter: ~"@{type}(@{percentage})";
+  -webkit-filter: ~"@{type}(@{percentage})";
+  -moz-filter: ~"@{type}(@{percentage})";
+  -o-filter: ~"@{type}(@{percentage})";
+  -ms-filter: ~"@{type}(@{percentage})";
+}
+
+.saturate(@percentage) {
+  .filter("saturate", @percentage);
+}
+
+.brightness(@percentage) {
+  .filter("brightness", @percentage);
+}
+
+.make-columns-by-amount(@xs, @sm, @md, @lg) {
+  .make-xs-column(@grid-columns / @xs);
+  .make-sm-column(@grid-columns / @sm);
+  .make-md-column(@grid-columns / @md);
+  .make-lg-column(@grid-columns / @lg);
+}
+
+.make-background-cover-image(@image-path, @position, @attachment) {
+  //@attachment = scroll
+	// background-position = center center
+	background-attachment: @attachment;
+  background-image: url(@image-path);
+  background-position: @position;
+  background-repeat: no-repeat;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
