@@ -1,0 +1,34 @@
+.make-contact-header() {
+  .text-center();
+  color: @gray-lighter;
+}
+
+.make-contact-body() {
+  .make-contact-formular();
+  .make-xs-column(@grid-columns);
+}
+
+.make-contact-formular() {
+  .make-formular();
+}
+
+// mixins
+.make-contact(@background-color) {
+  .make-section(@background-color, @background-color);
+  // container
+  > div {
+    // first row
+    > div:first-child {
+      .make-contact-header();
+    }
+    // second row
+    > div + div {
+      .make-contact-body();
+    }
+  }
+}
+
+// classes
+#contact {
+  .make-contact(@gray-darker);
+}
