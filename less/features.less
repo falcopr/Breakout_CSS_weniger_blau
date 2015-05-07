@@ -1,5 +1,5 @@
 .make-features-body() {
-  .col-1-2-3-3;
+
 
   // any columns
   > div {
@@ -47,6 +47,12 @@
     // second row
     > div + div {
       .make-features-body();
+      .col-1-2-3;
+    }
+    // third row
+    > div + div + div {
+      .make-features-body();
+      .col-1-2;
     }
   }
 }
