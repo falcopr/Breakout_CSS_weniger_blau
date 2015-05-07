@@ -1,0 +1,47 @@
+// mixins
+.make-footer-copyright() {
+  @media (max-width: @screen-sm-max) {
+    @copyright-padding-bottom: 10px;
+    padding-bottom: @copyright-padding-bottom;
+  }
+}
+
+.make-footer-social() {
+
+}
+
+.make-footer-userinfo() {
+
+}
+
+// mixins
+.make-footer() {
+  @footer-padding: 25px 0px;
+  padding: @footer-padding;
+  .make-section();
+  .text-center();
+  // container
+  > div {
+    // second row
+    > div {
+      .make-features-body();
+      .col-1-1-3;
+      > div:first-child {
+        .make-footer-copyright();
+      }
+
+      > div + div {
+        .make-footer-social()
+      }
+
+      > div + div + div {
+        .make-footer-userinfo()
+      }
+    }
+  }
+}
+
+// classes
+#footer {
+  .make-footer();
+}
