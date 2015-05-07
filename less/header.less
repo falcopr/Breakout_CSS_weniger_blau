@@ -1,5 +1,5 @@
 // mixins
-.make-lead-in() {
+.make-intro-lead-in() {
   @lead-in-font-size: 40px;
   @lead-in-margin-bottom: 25px;
   .intro-lead-in {
@@ -13,7 +13,7 @@
   }
 }
 
-.make-heading() {
+.make-intro-heading() {
   @heading-margin-bottom: 50px;
   @heading-font-size: 75px;
   .intro-heading {
@@ -30,7 +30,7 @@
   }
 }
 
-.make-heading-button() {
+.make-intro-heading-button() {
   a {
     .btn();
     .button-size(20, 40, 18, 1.428, 3);
@@ -46,7 +46,7 @@
   }
 }
 
-.make-header() {
+.make-intro-header() {
   .make-section(none, transparent);
   @header-padding-bottom: 125;
   @header-padding-top: @header-padding-bottom * 1.25;
@@ -64,13 +64,13 @@
       padding-bottom: @header-padding-bottom;
     }
 
-    .make-lead-in();
-    .make-heading();
-    .make-heading-button();
+    .make-intro-lead-in();
+    .make-intro-heading();
+    .make-intro-heading-button();
   }
 }
 
 // classes
 #intro {
-  .make-header();
+  .make-intro-header();
 }

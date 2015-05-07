@@ -1,3 +1,40 @@
+.make-features-body() {
+  .col-1-2-3-3;
+
+  // any columns
+  > div {
+      // icon container
+      div {
+        .fa-stack();
+        .fa-4x();
+
+        > i {
+          color: darken(@sdx-cyan, 20%);
+        }
+        > i + i {
+          .fa-inverse();
+        }
+      }
+
+      // header
+      h4 {
+      }
+
+      // description
+      p {
+      }
+  }
+}
+
+.make-features-header() {
+  // header rows
+  > div {
+    .make-xs-column(12);
+    .text-center();
+  }
+}
+
+
 // mixins
 .make-features() {
   .make-section();
@@ -5,15 +42,11 @@
   > div {
     // first row
     > div {
-      // header rows
-      > div {
-        .make-xs-column(12);
-        .text-center();
-      }
+      .make-features-header();
     }
     // second row
     > div + div {
-      .col-1-2-3-3;
+      .make-features-body();
     }
   }
 }
