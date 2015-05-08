@@ -17,22 +17,16 @@
 
 // classes
 
-.default-section {
-  .make-section(none, transparent);
-}
-
-.orange-section {
-  .make-section(@sdx-orange);
-}
-
-.navy-section {
-  .make-section(@sdx-navy);
-}
-
 .col-1-2-3-4 {
   > div {
     .make-columns-by-amount(1, 2, 3, 4);
     height: 100px;
+  }
+}
+
+.col-1-1-3 {
+	> div {
+    .make-columns-by-amount(1, 1, 3, 3);
   }
 }
 
@@ -45,12 +39,6 @@
 .col-1-2 {
 	> div {
     .make-columns-by-amount(1, 2, 2, 2);
-  }
-}
-
-.col-1-1-3 {
-	> div {
-    .make-columns-by-amount(1, 1, 3, 3);
   }
 }
 
