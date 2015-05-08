@@ -10,7 +10,7 @@
         > i:first-child {
           color: darken(@sdx-cyan, 20%);
         }
-        > i + i {
+        > i:first-child + i {
           .fa-inverse();
         }
       }
@@ -44,12 +44,12 @@
       .make-features-header();
     }
     // second row
-    > div + div {
+    > div:first-child + div {
       .make-features-body();
       .col-1-2-3;
     }
     // third row
-    > div + div + div {
+    > div:last-child {
       .make-features-body();
       .col-1-2;
     }

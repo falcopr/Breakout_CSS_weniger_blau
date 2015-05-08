@@ -1,15 +1,48 @@
 .make-contact-header() {
   .text-center();
-  color: @gray-lighter;
+  h2 {
+    color: @gray-lighter;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    color: @gray-light;
+  }
 }
 
 .make-contact-body() {
-  .make-contact-formular();
-  .make-xs-column(@grid-columns);
-}
+  form {
+    > div {
+      .make-row();
 
-.make-contact-formular() {
-  .make-formular();
+      > div {
+        .make-xs-column(@grid-columns);
+
+        input, textarea {
+          .form-group;
+        }
+      }
+
+      // first row
+      > div:first-child {
+        .make-md-column(@grid-columns / 2);
+      }
+
+      // third row (textarea)
+      > div:first-child + div {
+        .make-md-column(@grid-columns / 2);
+        textarea {
+          height: 216px;
+        }
+      }
+
+      > div:last-child {
+        .text-center();
+        .make-impact-button()
+      }
+    }
+  }
 }
 
 // mixins
@@ -22,7 +55,7 @@
       .make-contact-header();
     }
     // second row
-    > div + div {
+    > div:last-child {
       .make-contact-body();
     }
   }

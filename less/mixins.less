@@ -36,8 +36,19 @@
   background-size: cover;
 }
 
-.make-formular {
-  > div {
-    .make-row();
+.make-impact-button(@background-color: @sdx-cyan, @margin-bottom: @form-group-margin-bottom) {
+  a, button {
+    .btn();
+    .button-size(20, 40, 18, 1.428, 3);
+    font-weight: bold;
+    background-color: darken(@background-color, 30%);
+    color: @gray-lighter;
+    text-transform: uppercase;
+    margin-bottom: @margin-bottom;
+
+    &:hover {
+      color: @gray-lighter;
+      background-color: darken(@background-color, 20%);
+    }
   }
 }
