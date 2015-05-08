@@ -17,21 +17,24 @@
       .make-row();
 
       > div {
-        .make-xs-column(@grid-columns);
+        .make-xs-column(@grid-columns, 60px);
 
         input, textarea {
           .form-group;
         }
+
+        padding-right: 15px;
+        padding-left: 15px;
       }
 
       // first row
       > div:first-child {
-        .make-md-column(@grid-columns / 2);
+        .make-md-column(@grid-columns / 2, 60px);
       }
 
       // third row (textarea)
       > div:first-child + div {
-        .make-md-column(@grid-columns / 2);
+        .make-md-column(@grid-columns / 2, 60px);
         textarea {
           height: 216px;
         }
