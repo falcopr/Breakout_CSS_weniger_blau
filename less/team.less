@@ -1,0 +1,44 @@
+.make-team-table() {
+  table {
+    width: 100%;
+
+    .colPortrait {
+      width: 25%;
+    }
+
+    .colName {
+      width: 15%;
+    }
+
+    .colStadt {
+      width: 15%;
+    }
+
+    .colHauptgruppe {
+      width: 15%;
+    }
+
+    .colTelefon {
+      width: 25%;
+    }
+  }
+}
+
+// mixins
+.make-team() {
+  .make-section();
+  // container
+  > div {
+    // first row
+    > div:first-child {
+      .make-xs-column(@grid-columns);
+      .text-center();
+      .make-team-table();
+    }
+  }
+}
+
+// classes
+#team {
+  .make-team();
+}
