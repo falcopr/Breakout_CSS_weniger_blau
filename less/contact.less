@@ -16,25 +16,23 @@
     > div {
       .make-row();
 
+      @grid-column-gutters: 30 * 2;
       > div {
-        .make-xs-column(@grid-columns, 60px);
+        .make-xs-column(@grid-columns, @grid-column-gutters);
 
         input, textarea {
           .form-group;
         }
-
-        padding-right: 15px;
-        padding-left: 15px;
       }
 
       // first row
       > div:first-child {
-        .make-md-column(@grid-columns / 2, 60px);
+        .make-md-column(@grid-columns / 2, @grid-column-gutters);
       }
 
       // third row (textarea)
       > div:first-child + div {
-        .make-md-column(@grid-columns / 2, 60px);
+        .make-md-column(@grid-columns / 2, @grid-column-gutters);
         textarea {
           height: 216px;
         }
