@@ -47,6 +47,16 @@
     > div:first-child + div {
       .make-features-body();
       .col-1-2-3;
+
+      @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        > div:last-child {
+          .make-sm-column(@grid-columns);
+          p {
+            width: 50%;
+            .center-block();
+          }
+        }
+      }
     }
     // third row
     > div:last-child {

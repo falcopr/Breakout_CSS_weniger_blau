@@ -7,12 +7,28 @@
 
 	> div {
     .container();
+		.make-section-header();
 
     > div {
       .make-row();
       background-color: @row-background-color;
     }
   }
+}
+
+.make-section-header {
+	h2 {
+		margin-top: 75px;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: @gray-darker;
+	}
+
+	h3 {
+		margin-top: 30px;
+		margin-bottom: 40px;
+		color: @gray;
+	}
 }
 
 // classes

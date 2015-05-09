@@ -1,9 +1,17 @@
 .make-team-table() {
+
+  // search section
+  input, select {
+    margin: 15px 6px;
+  }
+
+  // table
   table {
     width: 100%;
 
     .colPortrait {
       width: 25%;
+      background-color: white;
     }
 
     .colName {
@@ -30,9 +38,17 @@
   // container
   > div {
     // first row
+    > div {
+      .text-center();
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
     > div:first-child {
       .make-xs-column(@grid-columns);
-      .text-center();
+    }
+
+    > div:last-child {
       .make-team-table();
     }
   }
